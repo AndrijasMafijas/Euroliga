@@ -1,0 +1,71 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\AlecPeters.jpg" />
+    <None Remove="Images\AlexeyShved.jpg" />
+    <None Remove="Images\Beograd.png" />
+    <None Remove="Images\Evropa.png" />
+    <None Remove="Images\Istanbul.png" />
+    <None Remove="Images\JanVesely.jpg" />
+    <None Remove="Images\Kaunas.png" />
+    <None Remove="Images\KostasSloukas.jpg" />
+    <None Remove="Images\KyleHines.jpg" />
+    <None Remove="Images\Lyon.png" />
+    <None Remove="Images\Madrid.png" />
+    <None Remove="Images\Milan.png" />
+    <None Remove="Images\Minhen.png" />
+
+    <None Remove="Images\NandoDeColo.jpg" />
+    <None Remove="Images\NikolaKalinic.jpg" />
+    <None Remove="Images\NikolaMirotic.jpg" />
+    <None Remove="Images\PredragGojkovic.jpg" />
+    <None Remove="Images\SergioLlull.jpg" />
+    <None Remove="Images\ShaneLarkin.jpg" />
+    <None Remove="Images\Teren.jpeg" />
+    <None Remove="Images\Teren.jpg" />
+    <None Remove="Images\ThomasHeurtel.jpg" />
+    <None Remove="Images\TiborPleiss.jpg" />
+    <None Remove="Images\TornikeShengelia.jpg" />
+    <None Remove="Images\VasilijeMicic.jpg" />
+    <None Remove="Images\VasilisCharalampopoulos.jpg" />
+    <None Remove="Teren.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\AlecPeters.jpg" />
+    <Resource Include="Images\AlexeyShved.jpg" />
+    <Resource Include="Images\Beograd.png" />
+    <Resource Include="Images\Evropa.png" />
+    <Resource Include="Images\Istanbul.png" />
+    <Resource Include="Images\JanVesely.jpg" />
+    <Resource Include="Images\Kaunas.png" />
+    <Resource Include="Images\KostasSloukas.jpg" />
+    <Resource Include="Images\KyleHines.jpg" />
+    <Resource Include="Images\Lyon.png" />
+    <Resource Include="Images\Madrid.png" />
+    <Resource Include="Images\Milan.png" />
+    <Resource Include="Images\Minhen.png" />
+
+    <Resource Include="Images\NandoDeColo.jpg" />
+    <Resource Include="Images\NikolaKalinic.jpg" />
+    <Resource Include="Images\NikolaMirotic.jpg" />
+    <Resource Include="Images\PredragGojkovic.jpg" />
+    <Resource Include="Images\SergioLlull.jpg" />
+    <Resource Include="Images\ShaneLarkin.jpg" />
+    <Resource Include="Images\Teren.jpg" />
+    <Resource Include="Images\ThomasHeurtel.jpg" />
+    <Resource Include="Images\TiborPleiss.jpg" />
+    <Resource Include="Images\TornikeShengelia.jpg" />
+    <Resource Include="Images\VasilijeMicic.jpg" />
+    <Resource Include="Images\VasilisCharalampopoulos.jpg" />
+    <Resource Include="Teren.jpg" />
+  </ItemGroup>
+
+</Project>

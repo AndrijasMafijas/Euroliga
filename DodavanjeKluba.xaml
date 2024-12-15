@@ -1,0 +1,33 @@
+﻿<Window x:Class="PROJEKAT.DodavanjeKluba"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PROJEKAT"
+        mc:Ignorable="d"
+        Title="Dodavanje Kluba" Height="350" Width="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">ID:</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="0" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Naziv:</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="0" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Grad:</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="0" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Logo:</TextBlock>
+        <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" FontSize="25" Content="Dodaj klub" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="DodajKlubb" Margin="0,0,0,12"></Button>
+
+        <TextBox Grid.Row="0" Grid.Column="1" x:Name="ID" Margin="20 20 20 20"></TextBox>
+        <TextBox Grid.Row="1" Grid.Column="1" x:Name="IME" Margin="20 20 20 20"></TextBox>
+        <TextBox Grid.Row="2" Grid.Column="1" x:Name="GRAD" Margin="20 20 20 20"></TextBox>
+        <Button x:Name="selectImage" Click="izaberiLogo" Grid.Column="1" Grid.Row="3" Content="Izaberite logo" Margin="20 20 20 20" HorizontalAlignment="Center"></Button>
+    </Grid>
+</Window>

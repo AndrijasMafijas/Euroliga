@@ -1,0 +1,56 @@
+﻿<Window x:Class="PROJEKAT.Izmena"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PROJEKAT"
+        mc:Ignorable="d"
+        Title="Izmena podataka za igraca" Height="450" Width="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">JMBG:</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="0" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Ime:</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="0" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Prezime:</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="0" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Pozicija:</TextBlock>
+        <TextBlock Grid.Row="4" Grid.Column="0" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Nacionalnost:</TextBlock>
+        <TextBlock Grid.Row="5" Grid.Column="0" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Broj dresa:</TextBlock>
+        <TextBlock Grid.Row="6" Grid.Column="0" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Broj utakmica:</TextBlock>
+        <TextBlock Grid.Row="7" Grid.Column="0" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Broj poena:</TextBlock>
+        <TextBlock Grid.Row="8" Grid.Column="0" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">Slika:</TextBlock>
+        <Button Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" FontSize="25" Content="Izmeni podatke o igracu" HorizontalAlignment="Center" VerticalAlignment="Center" Click="IzmeniIgraca" ></Button>
+
+        <TextBox Grid.Row="0" Grid.Column="1" x:Name="jmbg" Margin="10 10 10 10"></TextBox>
+        <TextBox Grid.Row="1" Grid.Column="1" x:Name="ime" Margin="10 10 10 10"></TextBox>
+        <TextBox Grid.Row="2" Grid.Column="1" x:Name="prezime" Margin="10 10 10 10"></TextBox>
+        <ComboBox x:Name="pozicija"  Grid.Column="1" Grid.Row="3" Margin="10 10 10 10" >
+            <ComboBoxItem Content="Sve pozicije" IsSelected="True"></ComboBoxItem>
+            <ComboBoxItem>Krilo</ComboBoxItem>
+            <ComboBoxItem>Bek</ComboBoxItem>
+            <ComboBoxItem>Centar</ComboBoxItem>
+            <ComboBoxItem>Plejmejker</ComboBoxItem>
+            <ComboBoxItem>Krilni centar</ComboBoxItem>
+        </ComboBox>
+        <TextBox Grid.Row="4" Grid.Column="1" x:Name="nacionalnost" Margin="10 10 10 10"></TextBox>
+        <TextBox Grid.Row="5" Grid.Column="1" x:Name="brojDresa" Margin="10 10 10 10"></TextBox>
+        <TextBox Grid.Row="6" Grid.Column="1" x:Name="brojUtakmica" Margin="10 10 10 10"></TextBox>
+        <TextBox Grid.Row="7" Grid.Column="1" x:Name="brojPoena" Margin="10 10 10 10"></TextBox>
+        <Button x:Name="selectImage" Click="izaberiSliku" Grid.Column="1" Grid.Row="8" Content="Promeni sliku" Margin="10 10 10 10" HorizontalAlignment="Center"></Button>
+    </Grid>
+</Window>

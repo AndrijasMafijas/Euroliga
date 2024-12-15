@@ -1,0 +1,147 @@
+﻿<Window x:Class="PROJEKAT.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PROJEKAT"
+        mc:Ignorable="d"
+        Title="EuroLiga" Height="480" Width="1100">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Spisak igraca">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25*"/>
+                        <ColumnDefinition Width="372*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="2*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.ColumnSpan="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="2*"></RowDefinition>
+                            <RowDefinition Height="2*"></RowDefinition>
+                            <RowDefinition Height="2*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="4*"></ColumnDefinition>
+                            <ColumnDefinition Width="4*"></ColumnDefinition>
+                            <ColumnDefinition Width="4*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Prezime" Margin="5 5 5 5" Grid.Column="2"   Grid.Row="1" FontSize="15" HorizontalAlignment="Left"  VerticalAlignment="Center" ></TextBlock>
+                        <TextBlock Text="Pozicija" Margin="5 5 5 5" Grid.Column="3" Grid.Row="1" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" ></TextBlock>
+                        <TextBlock Text="Ime" Margin="5 5 5 5" Grid.Column="1" Grid.Row="1" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center" ></TextBlock>
+                        <TextBox x:Name="txtIme" Grid.Column="1" Grid.Row="2" Margin="5 0 5 5"  ></TextBox>
+                        <TextBox x:Name="txtPrezime" Grid.Column="2" Grid.Row="2" Margin ="5 0 5 5" ></TextBox>
+                        <ComboBox VerticalAlignment="Center" x:Name="txtPozicija"  Grid.Column="3" Grid.Row="2" Margin="5 0 5 5" >
+                            <ComboBoxItem Content="Sve pozicije" IsSelected="True"></ComboBoxItem>
+                            <ComboBoxItem>Krilo</ComboBoxItem>
+                            <ComboBoxItem>Bek</ComboBoxItem>
+                            <ComboBoxItem>Centar</ComboBoxItem>
+                            <ComboBoxItem>Plejmejker</ComboBoxItem>
+                            <ComboBoxItem>Krilni centar</ComboBoxItem>
+                        </ComboBox>
+                        <Button x:Name="Pretrazi" Grid.Column="1" Grid.Row="3" Margin="5 3 5 3" Click="Pretrazi_Click" >Pretrazi</Button>
+                        <Button Grid.Column="2" Grid.Row="3" Margin="5 3 5 3" Click="Eksportuj_Click">Eksportuj</Button>
+                    </Grid>
+
+                    <DataGrid x:Name="ViewDataGrid" IsReadOnly="True" GridLinesVisibility="Horizontal"
+                                     AutoGenerateColumns="False" Grid.ColumnSpan="2" Margin="0,135,0,0" Grid.RowSpan="2">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="JMBG" Binding="{Binding Path=Jmbg}" Width="125" />
+                            <DataGridTextColumn Header="Ime" Binding="{Binding Path=Ime}" Width="120"/>
+                            <DataGridTextColumn Header="Prezime" Binding="{Binding Path=Prezime}" Width="125"/>
+                            <DataGridTextColumn Header="Pozicija" Binding="{Binding Path=Pozicija}" Width="125"/>
+                            <DataGridTextColumn Header="Nacionalnost" Binding="{Binding Path=Nacionalnost}" Width="140"/>
+                            <DataGridTextColumn Header="Broj dresa" Binding="{Binding Path=BrojDresa}" Width="125"/>
+                            <DataGridTextColumn Header="Broj utakmica" Binding="{Binding Path=BrojUtakmica}" Width="110"/>
+                            <DataGridTextColumn Header="Broj poena" Binding="{Binding Path=BrojPoena}" Width="120"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Prikaz igraca na terenu">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="7*"></ColumnDefinition>
+                        <ColumnDefinition Width="4*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Canvas x:Name="Canvas"  Grid.Row="0" Grid.Column="1"  AllowDrop="True" DragEnter="Image_DragEnter"  Drop="Image_Drop">
+                        <Image x:Name="slika" Stretch="Uniform" Source="/Images/Teren.jpg" Height="400" Width="400" MouseRightButtonUp="DodajIgraca" >
+                        </Image>
+                    </Canvas>
+
+                    <ListView x:Name="ListView1" Grid.Column="0" ItemsSource="{Binding kosarkasi}" Margin="0,0,0,0" Grid.Row="0" VerticalAlignment="Top"  HorizontalAlignment="Center"  PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown" MouseMove="ListView_MouseMove">
+                        <ListView.View>
+                            <GridView x:Name="GridLista">
+                                <GridViewColumn Header="Jmbg" DisplayMemberBinding="{Binding Path=Jmbg}" Width="105"></GridViewColumn>
+                                <GridViewColumn Header="Ime" DisplayMemberBinding="{Binding Path=Ime}" Width="60"></GridViewColumn>
+                                <GridViewColumn Header="Prezime" DisplayMemberBinding="{Binding Path=Prezime}" Width="65"></GridViewColumn>
+                                <GridViewColumn Header="Pozicija" DisplayMemberBinding="{Binding Path=Pozicija}" Width="70"></GridViewColumn>
+                                <GridViewColumn Header="Nacionalnost" DisplayMemberBinding="{Binding Path=Nacionalnost}" Width="80"></GridViewColumn>
+                                <GridViewColumn Header="Br. Dresa" DisplayMemberBinding="{Binding Path=BrojDresa}" Width="60"></GridViewColumn>
+                                <GridViewColumn Header="Br. Utakmica" DisplayMemberBinding="{Binding Path=BrojUtakmica}" Width="70"></GridViewColumn>
+                                <GridViewColumn Header="Br. Poena" DisplayMemberBinding="{Binding Path=BrojPoena}" Width="55"></GridViewColumn>
+                                <!--<GridViewColumn Header="Slika" DisplayMemberBinding="{Binding Path=Slika}" Width="115"></GridViewColumn-->
+
+                                <GridViewColumn Header="Slika" Width="90">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Width="85" Height="50" MouseUp="IzmeniIgraca" Source="{Binding Path=Slika}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                            </GridView>
+                        </ListView.View>
+
+                    </ListView>
+
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Klubovi">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Canvas Grid.Column="1" AllowDrop="True" DragEnter="Image_DragEnter2"  Drop="Image_Drop2" x:Name="Canvas2">
+                        <Image x:Name="Evropa" Stretch="Uniform"  Source="/Images/Evropa.png" Height="449" Width="555" Canvas.Left="-40" Canvas.Top="-15" MouseRightButtonUp="DodajKlub"></Image>
+
+
+                    </Canvas>
+                    <TreeView Grid.Column="0" Grid.Row="0" Name="trvKlub"  PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown2" MouseMove="ListView_MouseMove2">
+                        <TreeView.Resources>
+                            <HierarchicalDataTemplate DataType="{x:Type local:Klubovi}" ItemsSource="{Binding SviKlubovi}">
+                                <TextBlock Text="{Binding Naslov}"/>
+                            </HierarchicalDataTemplate>
+                            <DataTemplate DataType="{x:Type local:Klub}">
+                                <StackPanel Orientation="Horizontal" >
+                                    <TextBlock VerticalAlignment="Center" Text="{Binding Naziv}" FontWeight="Bold"/>
+                                    <TextBlock VerticalAlignment="Center" Text=" ("/>
+                                    <TextBlock VerticalAlignment="Center" Text="{Binding Id}"/>
+                                    <TextBlock VerticalAlignment="Center" Text=", "/>
+                                    <TextBlock VerticalAlignment="Center" Text="{Binding Grad}"/>
+                                    <TextBlock VerticalAlignment="Center" Text=")"/>
+                                    <Image Width="40" Height="40" Source="{Binding Logo}" MouseUp="IzmeniKlub"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </TreeView.Resources>
+                    </TreeView>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+    </Grid>
+</Window>
